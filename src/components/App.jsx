@@ -1,6 +1,17 @@
-export const App = () => {
-  return (
-    <div
+import { Component } from 'react';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import PropTypes from 'prop-types';
+
+
+export default class App extends Component{
+  state = {
+  searchQuery: '',
+  }
+  
+  render() {
+    return (
+      <div
       style={{
         height: '100vh',
         display: 'flex',
@@ -10,7 +21,14 @@ export const App = () => {
         color: '#010101'
       }}
     >
-      React homework template
+      <div>
+        
+        <ToastContainer autoClose={2000} />
+        <Searchbar onSubmit={ this.handleFormSubmit}/>
+        <ImageGallery searchQuery={ this.state.searchQuery}/>
+
+      </div>
     </div>
-  );
+    )
+  }
 };
