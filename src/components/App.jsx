@@ -1,7 +1,9 @@
 import { Component } from 'react';
-import { toast, ToastContainer } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import PropTypes from 'prop-types';
+import ImageGallery from './ImageGallery/ImageGallery';
+// import PropTypes from 'prop-types';
+import Searchbar from './Searchbar/Serchbar';
 
 
 export default class App extends Component{
@@ -9,18 +11,12 @@ export default class App extends Component{
   searchQuery: '',
   }
   
+  handleFormSubmit = searchQuery => {
+  this.setState({searchQuery})
+}
+
   render() {
     return (
-      <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
       <div>
         
         <ToastContainer autoClose={2000} />
@@ -28,7 +24,6 @@ export default class App extends Component{
         <ImageGallery searchQuery={ this.state.searchQuery}/>
 
       </div>
-    </div>
     )
   }
 };
